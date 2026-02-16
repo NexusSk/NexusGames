@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import HeroScene from './HeroScene'
+import AnimatedCounter from './AnimatedCounter'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,7 +36,7 @@ export default function Hero() {
           animate="visible"
           custom={1}
         >
-          We Craft Worlds
+          <span className="hero-title-line">We Craft Worlds</span>
           <br />
           <span className="gradient-text">You'll Never Forget</span>
         </motion.h1>
@@ -78,22 +79,31 @@ export default function Hero() {
           custom={4}
         >
           <div className="stat-item">
-            <h3>12M+</h3>
+            <h3><AnimatedCounter target="12" suffix="M+" /></h3>
             <p>Players Worldwide</p>
           </div>
           <div className="stat-item">
-            <h3>6</h3>
+            <h3><AnimatedCounter target="6" /></h3>
             <p>Titles Released</p>
           </div>
           <div className="stat-item">
-            <h3>85+</h3>
+            <h3><AnimatedCounter target="85" suffix="+" /></h3>
             <p>Team Members</p>
           </div>
           <div className="stat-item">
-            <h3>14</h3>
+            <h3><AnimatedCounter target="14" /></h3>
             <p>Awards Won</p>
           </div>
         </motion.div>
+      </div>
+
+      <div className="hero-scroll-indicator">
+        <motion.div
+          className="scroll-line"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <span>Scroll</span>
       </div>
     </section>
   )
